@@ -10,32 +10,30 @@ class TestShip {
 	void test1() {
 		Ship ship1 = new Ship(new BoardPlot(1,1), ShipModel.DESTROYER, Direction.UP);
 		Plot plot = new BoardPlot(1,1);
-		ship1.isOnPlot(plot);
-		assertTrue(true);
+		boolean result = ship1.isOnPlot(plot);
+		assertTrue(result);
 	}
 	
 	@Test
 	void test2() {
 		Ship ship1 = new Ship(new BoardPlot(1,1), ShipModel.DESTROYER, Direction.UP);
 		Plot plot = new BoardPlot(2,1);
-		ship1.isOnPlot(plot);
-		assertFalse(false);
+		boolean result = ship1.isOnPlot(plot);
+		assertFalse(result);
 	}
 	
 	@Test
 	void test3() {
 		Ship ship1 = new Ship(new BoardPlot(8,1), ShipModel.SUBMARINE, Direction.UP);
 		Plot plot = new BoardPlot(8,2);
-		ship1.isOnPlot(plot);
-		assertTrue(true);
+		assertTrue(ship1.isOnPlot(plot));
 	}
 	
 	@Test
 	void test4() {
 		Ship ship1 = new Ship(new BoardPlot(8,1), ShipModel.SUBMARINE, Direction.UP);
 		Plot plot = new BoardPlot(8,4);
-		ship1.isOnPlot(plot);
-		assertFalse(false);
+		assertFalse(ship1.isOnPlot(plot));
 	}
 }
 

@@ -14,7 +14,7 @@ public class BoardPlot implements Plot{
 		this.ordinate = ordinate;
 	}
 
-	List<BoardPlot> boardPlotList = new ArrayList<>();
+	//List<BoardPlot> boardPlotList = new ArrayList<>();
 	
 	@Override
 	public int getAbscissa() {
@@ -48,6 +48,34 @@ public class BoardPlot implements Plot{
 		// creation of the new coordinate(case)
 		BoardPlot boardPlot = new BoardPlot(newCoordAbscissa,newCoordOrdinate);
 		return boardPlot;
+		
+		
+	}
+
+	// need to override method equals for correct working of the method (contains) in the method isOnPlot
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + abscissa;
+		result = prime * result + ordinate;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BoardPlot other = (BoardPlot) obj;
+		if (abscissa != other.abscissa)
+			return false;
+		if (ordinate != other.ordinate)
+			return false;
+		return true;
 	}
 	
 }
